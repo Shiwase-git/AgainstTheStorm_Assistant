@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgainstTheStorm_Assistant_App.Daten.Species
+namespace AgainstTheStorm_Assistant_App.Daten.Cornerstones
 {
-    internal class BaseSpecies
+    internal class Cornerstone
     {
     }
 }

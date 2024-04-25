@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgainstTheStorm_Assistant_App.Daten.Cornerstones
+namespace AgainstTheStorm_Assistant_App.Daten.Buildings
 {
-    internal class BaseCornerstone
+    internal class Building
     {
     }
 }

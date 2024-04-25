@@ -43,16 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Daten\Buildings\BaseBuilding.cs" />
-    <Compile Include="Daten\Cornerstones\BaseCornerstone.cs" />
-    <Compile Include="Daten\Goods\BaseGood.cs" />
-    <Compile Include="Daten\Species\BaseSpecies.cs" />
+    <Compile Include="Daten\Buildings\Building.cs" />
+    <Compile Include="Daten\Cornerstones\Cornerstone.cs" />
+    <Compile Include="Daten\Goods\Good.cs" />
+    <Compile Include="Daten\Species\Species.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Daten\enums\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
