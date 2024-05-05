@@ -1,6 +1,7 @@
 ﻿using AgainstTheStorm_Assistant_App.Daten.Species;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,23 +11,56 @@ namespace AgainstTheStorm_Assistant_App
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static public bool ReportsOn = true;
+        Dictionary<string, int> SpeciesRating = new Dictionary<string, int>();
+        Dictionary<string, int> BuildingRating = new Dictionary<string, int>();
+        Dictionary<string, int> GoodRating = new Dictionary<string, int>();
+        Dictionary<string, int> CornerstoneRating = new Dictionary<string, int>();
+        static void Main()
         {
+            //Beste Rassen aus vorraussetzungen bestimmen.
+            ///Todo
+
+            string[] Rassen = RassenEingeben();
+            List<string> NeedsRassen = NeedsAuslesen(Rassen);
+
+            ///Todo: Gebäudevalues bestimmen
+
+            //EndMock
+            Console.WriteLine("Enter to End");
+            Console.ReadLine();
+        }
+
+        static string[] RassenEingeben()
+        {
+            string[] Rassen = { "", "", "" };
+
             //Welche Rassen werden gespielt?
+            Console.WriteLine("Bitte die drei Rassen eingeben: Human,Beaver,Harpy,Lizard,Fox");
             
+            int i = 0;
+            bool EingabeValid = false;
+            foreach (string Rasse in Rassen)
+            {
+                Console.WriteLine("Rasse "+i.ToString()+":");
+                while (EingabeValid == false)
+                {
+                    Rassen[i] = Console.ReadLine();
+                    if (Rassen[i] == "Human" | Rassen[i] == "Beaver" | Rassen[i] == "Harpy" | Rassen[i] == "Lizard" | Rassen[i] == "Fox") EingabeValid = true;
+                    if (EingabeValid == false) Console.WriteLine("Invalide Eingabe: Bitte eine der Oben genannten Rassen eingeben");
+                }
+                i++;
+                EingabeValid = false;
+            }
+            return Rassen;
+        }
+        
+        static List<string> NeedsAuslesen(string[] Rassen)
+        {
+            List<string> NeedsRasse;
+            List<string> NeedsRassen = new List<string> {}; ;
 
-            string[] Rassen = {"","",""};
-            Enum[] NeedsRasse;
-
-            Console.WriteLine("Bitte die Drei Rassen eingeben: Human,Beaver,Harpy,Lizard,Fox");
-            Console.WriteLine("Rasse 1:");
-            Rassen[0] = Console.ReadLine();
-            Console.WriteLine("Rasse 2:");
-            Rassen[1] = Console.ReadLine();
-            Console.WriteLine("Rasse 3:");
-            Rassen[2] = Console.ReadLine();
-
-            Console.WriteLine("Needs:");
+            if (ReportsOn) Console.WriteLine("Needs:");
             foreach (string Rasse in Rassen)
             {
                 switch (Rasse)
@@ -51,19 +85,28 @@ namespace AgainstTheStorm_Assistant_App
                         break;
 
                 }
-                Console.WriteLine("");
-                Console.WriteLine(Rasse);
-                foreach (Enum need in NeedsRasse)
+                if (ReportsOn) Console.WriteLine("");
+                if (ReportsOn) Console.WriteLine(Rasse);
+                foreach (string need in NeedsRasse)
                 {
-                    Console.WriteLine(need.ToString());
-
-                    //If noch nicht in Liste --> Zu Needliste Hinzufügen
+                    if (!NeedsRassen.Contains(need))
+                    {
+                        NeedsRassen.Add(need);
+                        if (ReportsOn) Console.WriteLine(need.ToString());
+                    }
+                    else
+                    {
+                        ///Todo: Need value up
+                    }
                 }
             }
-
-
-            Console.WriteLine("Enter to End");
-            Console.ReadLine();
+            if (ReportsOn) Console.WriteLine("");
+            if (ReportsOn) Console.WriteLine("Ganze Liste");
+            foreach (string need in NeedsRassen)
+            {
+                if(ReportsOn)Console.WriteLine(need);
+            }
+            return NeedsRassen;
         }
     }
 }

@@ -8,5 +8,7 @@ namespace AgainstTheStorm_Assistant_App.Daten.Buildings
 {
     internal class Building
     {
+        //Camps
+
     }
 }
