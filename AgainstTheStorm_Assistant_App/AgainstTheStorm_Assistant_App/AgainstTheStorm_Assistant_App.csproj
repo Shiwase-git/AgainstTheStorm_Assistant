@@ -61,6 +61,11 @@
     <Compile Include="Daten\Buildings\Building.cs" />
     <Compile Include="Daten\Cornerstones\Cornerstone.cs" />
     <Compile Include="Daten\Goods\Good.cs" />
+    <Compile Include="Daten\Species\SpeciesFox.cs" />
+    <Compile Include="Daten\Species\SpeciesLizard.cs" />
+    <Compile Include="Daten\Species\SpeciesHarpy.cs" />
+    <Compile Include="Daten\Species\SpeciesBeaver.cs" />
+    <Compile Include="Daten\Species\SpeciesHuman.cs" />
     <Compile Include="Daten\Species\Species.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

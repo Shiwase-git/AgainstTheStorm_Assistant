@@ -5,12 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static AgainstTheStorm_Assistant_App.Daten.Species.Species;
 
 
 namespace AgainstTheStorm_Assistant_App
 {
     internal class Program
     {
+        //Übergreifende Daten
         static public bool ReportsOn = true;
         Dictionary<string, int> SpeciesRating = new Dictionary<string, int>();
         Dictionary<string, int> BuildingRating = new Dictionary<string, int>();
@@ -66,24 +68,28 @@ namespace AgainstTheStorm_Assistant_App
                 switch (Rasse)
                 {
                     case "Human":
-                        NeedsRasse = NeedsHuman.GetNeeds();
+                        SpeciesHuman Humans = new SpeciesHuman();
+                        NeedsRasse = Humans.Needs;
                         break;
                     case "Beaver":
-                        NeedsRasse = NeedsBeaver.GetNeeds();
+                        SpeciesBeaver Beavers = new SpeciesBeaver();
+                        NeedsRasse = Beavers.Needs;
                         break;
                     case "Harpy":
-                        NeedsRasse = NeedsHarpy.GetNeeds();
+                        SpeciesHarpy Harpys = new SpeciesHarpy();
+                        NeedsRasse = Harpys.Needs;
                         break;
                     case "Lizard":
-                        NeedsRasse = NeedsLizard.GetNeeds();
+                        SpeciesLizard Lizards = new SpeciesLizard();
+                        NeedsRasse = Lizards.Needs;
                         break;
                     case "Fox":
-                        NeedsRasse = NeedsFox.GetNeeds();
+                        SpeciesFox Foxes = new SpeciesFox();
+                        NeedsRasse = Foxes.Needs;
                         break;
                     default:
                         NeedsRasse = null;
                         break;
-
                 }
                 if (ReportsOn) Console.WriteLine("");
                 if (ReportsOn) Console.WriteLine(Rasse);
